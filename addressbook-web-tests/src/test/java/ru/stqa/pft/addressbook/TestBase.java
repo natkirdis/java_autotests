@@ -89,12 +89,20 @@ public class TestBase {
     wd.findElement(By.name("selected[]")).click();
   }
 
-  protected void gotoHomePage() {
+  protected void returnToHomePage() {
     wd.findElement(By.linkText("home page")).click();
+  }
+
+  protected void gotoHomePage() {
+    wd.findElement(By.linkText("home")).click();
   }
 
   protected void submitContactCreation() {
     wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+  }
+
+  protected void selectContact() {
+    wd.findElement(By.name("selected[]")).click();
   }
 
   protected void fillContactForm(ContactData contactData) {
@@ -108,5 +116,10 @@ public class TestBase {
 
   protected void gotoContactCreationPage() {
     wd.findElement(By.linkText("add new")).click();
+  }
+
+  protected void deleteSelectedContact() {
+    wd.findElement(By.xpath("//input[@value='Delete']")).click();
+    wd.switchTo().alert().accept();
   }
 }

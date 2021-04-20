@@ -9,7 +9,7 @@ public class ContactCreationTests extends TestBase {
     gotoContactCreationPage();
     fillContactForm(new ContactData("Name1", "MiddleName1", "LastName1", "Address1", "8999007766", "test@test.ru"));
     submitContactCreation();
-    gotoHomePage();
+    returnToHomePage();
     logout();
   }
 
