@@ -10,10 +10,10 @@ public class ContactModificationTests extends TestBase {
     app.getContactHelper().initContactModification();
     app.getContactHelper().fillContactForm(new ContactData("Name1 edited",
             "MiddleName1 edited",
-            "LastName1 edited",
-            "Address1 edited",
-            "8999007777",
-            "test_edited@test.ru"));
+            null,
+            null,
+            null,
+            null));
     app.getContactHelper().submitContactModification();
     app.getContactHelper().returnToHomePage();
 
