@@ -54,4 +54,8 @@ public class ContactHelper extends HelperBase {
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//img[@title='Edit']"));
   }
+
+  public int getContactCount() {
+    return countElements(By.name("selected[]"));
+  }
 }

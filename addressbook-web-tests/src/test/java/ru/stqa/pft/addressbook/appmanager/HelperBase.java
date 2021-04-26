@@ -43,6 +43,12 @@ public class HelperBase {
     return wd.findElement(By.tagName("h1")).getText();
   }
 
+  public int countElements(By locator) {
+    return wd.findElements(locator).size();
+  }
+
+
+
   private boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
