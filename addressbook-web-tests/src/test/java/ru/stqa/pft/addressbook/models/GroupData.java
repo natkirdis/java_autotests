@@ -9,7 +9,7 @@ public class GroupData {
   private final String footer;
 
   public GroupData(String name, String header, String footer) {
-    this.id = 0;
+    this.id = Integer.MAX_VALUE;
     this.name = name;
     this.header = header;
     this.footer = footer;
@@ -55,12 +55,11 @@ public class GroupData {
     if (this == o) return true;
     if (!(o instanceof GroupData)) return false;
     GroupData groupData = (GroupData) o;
-    return getId() == groupData.getId() &&
-            Objects.equals(getName(), groupData.getName());
+    return Objects.equals(getName(), groupData.getName());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getId(), getName());
+    return Objects.hash(getName());
   }
 }

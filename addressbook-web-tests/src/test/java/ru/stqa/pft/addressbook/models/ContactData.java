@@ -12,7 +12,7 @@ public class ContactData {
   private final String email;
 
   public ContactData(String name, String middlename, String lastname, String address, String phone, String email) {
-    this.id = 0;
+    this.id = Integer.MAX_VALUE;
     this.name = name;
     this.middlename = middlename;
     this.lastname = lastname;
@@ -77,13 +77,12 @@ public class ContactData {
     if (this == o) return true;
     if (!(o instanceof ContactData)) return false;
     ContactData that = (ContactData) o;
-    return getId() == that.getId() &&
-            Objects.equals(getName(), that.getName()) &&
+    return Objects.equals(getName(), that.getName()) &&
             Objects.equals(getLastname(), that.getLastname());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getId(), getName(), getLastname());
+    return Objects.hash(getName(), getLastname());
   }
 }
