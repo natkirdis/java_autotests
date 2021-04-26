@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.models.ContactData;
 
 public class ContactHelper extends HelperBase {
-  private WebDriver wd;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -19,8 +18,8 @@ public class ContactHelper extends HelperBase {
     click(By.name("submit"));
   }
 
-  public void selectContact() {
-    click(By.name("selected[]"));
+  public void selectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void fillContactForm(ContactData contactData) {
@@ -37,8 +36,8 @@ public class ContactHelper extends HelperBase {
     accept();
   }
 
-  public void initContactModification() {
-    click(By.xpath("//img[@title='Edit']"));
+  public void initContactModification(int index) {
+    wd.findElements(By.xpath("//img[@title='Edit']")).get(index).click();
   }
 
   public void submitContactModification() {
