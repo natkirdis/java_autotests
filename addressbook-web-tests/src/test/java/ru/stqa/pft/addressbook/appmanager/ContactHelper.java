@@ -5,12 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.models.ContactData;
 import ru.stqa.pft.addressbook.models.Contacts;
-import ru.stqa.pft.addressbook.models.Groups;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -111,5 +108,9 @@ public class ContactHelper extends HelperBase {
       contactCache.add(contact);
     }
     return contactCache;
+  }
+
+  public int count() {
+    return wd.findElements(By.name("selected[]")).size();
   }
 }
