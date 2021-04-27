@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.models.ContactData;
+import ru.stqa.pft.addressbook.models.Contacts;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -102,8 +103,8 @@ public class ContactHelper extends HelperBase {
     return contacts;
   }
 
-  public Set<ContactData> all() {
-    Set <ContactData> contacts = new HashSet<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List <WebElement> elements = wd.findElements(By.cssSelector("tr[name='entry']"));
     for (WebElement element: elements) {
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
