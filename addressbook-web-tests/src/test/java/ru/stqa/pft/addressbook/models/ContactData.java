@@ -4,19 +4,21 @@ import java.util.Objects;
 
 public class ContactData {
   private int id = Integer.MAX_VALUE;
-  private String name;
-  private String middlename;
+  private String firstname;
+  private String middleName;
   private String lastname;
   private String address;
-  private String phone;
+  private String homePhone;
+  private String mobilePhone;
+  private String workPhone;
   private String email;
 
-  public String getName() {
-    return name;
+  public String getFirstname() {
+    return firstname;
   }
 
-  public String getMiddlename() {
-    return middlename;
+  public String getMiddleName() {
+    return middleName;
   }
 
   public String getLastname() {
@@ -27,8 +29,8 @@ public class ContactData {
     return address;
   }
 
-  public String getPhone() {
-    return phone;
+  public String getHomePhone() {
+    return homePhone;
   }
 
   public String getEmail() {
@@ -39,18 +41,26 @@ public class ContactData {
     return id;
   }
 
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
   public ContactData withId(int id) {
     this.id = id;
     return this;
   }
 
-  public ContactData withName(String name) {
-    this.name = name;
+  public ContactData withFirstname(String name) {
+    this.firstname = name;
     return this;
   }
 
   public ContactData withMiddlename(String middlename) {
-    this.middlename = middlename;
+    this.middleName = middlename;
     return this;
   }
 
@@ -64,8 +74,8 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withPhone(String phone) {
-    this.phone = phone;
+  public ContactData withHomePhone(String phone) {
+    this.homePhone = phone;
     return this;
   }
 
@@ -74,11 +84,21 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
+  }
+
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
   @Override
   public String toString() {
     return "ContactData{" +
             "id='" + id + '\'' +
-            ", name='" + name + '\'' +
+            ", name='" + firstname + '\'' +
             ", lastname='" + lastname + '\'' +
             '}';
   }
@@ -89,12 +109,12 @@ public class ContactData {
     if (!(o instanceof ContactData)) return false;
     ContactData that = (ContactData) o;
     return getId() == that.getId() &&
-            Objects.equals(getName(), that.getName()) &&
+            Objects.equals(getFirstname(), that.getFirstname()) &&
             Objects.equals(getLastname(), that.getLastname());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getId(), getName(), getLastname());
+    return Objects.hash(getId(), getFirstname(), getLastname());
   }
 }
