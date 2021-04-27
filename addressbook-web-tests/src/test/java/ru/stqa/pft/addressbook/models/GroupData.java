@@ -57,11 +57,12 @@ public class GroupData {
     if (this == o) return true;
     if (!(o instanceof GroupData)) return false;
     GroupData groupData = (GroupData) o;
-    return Objects.equals(getName(), groupData.getName());
+    return getId() == groupData.getId() &&
+            Objects.equals(getName(), groupData.getName());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getName());
+    return Objects.hash(getId(), getName());
   }
 }

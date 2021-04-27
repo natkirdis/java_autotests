@@ -88,12 +88,13 @@ public class ContactData {
     if (this == o) return true;
     if (!(o instanceof ContactData)) return false;
     ContactData that = (ContactData) o;
-    return Objects.equals(getName(), that.getName()) &&
+    return getId() == that.getId() &&
+            Objects.equals(getName(), that.getName()) &&
             Objects.equals(getLastname(), that.getLastname());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getName(), getLastname());
+    return Objects.hash(getId(), getName(), getLastname());
   }
 }
