@@ -8,9 +8,10 @@ public class ContactData {
   private String middleName;
   private String lastname;
   private String address;
-  private String homePhone;
-  private String mobilePhone;
+  private String allPhones;
   private String workPhone;
+  private String mobilePhone;
+  private String homePhone;
   private String email;
 
   public String getFirstname() {
@@ -29,10 +30,6 @@ public class ContactData {
     return address;
   }
 
-  public String getHomePhone() {
-    return homePhone;
-  }
-
   public String getEmail() {
     return email;
   }
@@ -41,16 +38,44 @@ public class ContactData {
     return id;
   }
 
-  public String getMobilePhone() {
-    return mobilePhone;
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  public String getAllPhones() {
+    return allPhones;
   }
 
   public String getWorkPhone() {
     return workPhone;
   }
 
-  public ContactData withId(int id) {
-    this.id = id;
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public ContactData withWorkPhone(String workPhones) {
+    this.workPhone = workPhones;
+    return this;
+  }
+
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
+  public ContactData withHomePhone(String homePhone) {
+    this.homePhone = homePhone;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
     return this;
   }
 
@@ -74,23 +99,8 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withHomePhone(String phone) {
-    this.homePhone = phone;
-    return this;
-  }
-
   public ContactData withEmail(String email) {
     this.email = email;
-    return this;
-  }
-
-  public ContactData withWorkPhone(String workPhone) {
-    this.workPhone = workPhone;
-    return this;
-  }
-
-  public ContactData withMobilePhone(String mobilePhone) {
-    this.mobilePhone = mobilePhone;
     return this;
   }
 
