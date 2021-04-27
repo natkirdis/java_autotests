@@ -14,9 +14,10 @@ public class ContactDeletionTests extends TestBase {
     app.goTo().homePage();
     if (app.contact().list().size() == 0) {
       app.goTo().contactCreationPage();
-      app.contact().create(new ContactData("Name1",
-              "MiddleName1","LastName1","Address1",
-              "8999007766","test@test.ru"));
+      app.contact().create(new ContactData().withName("Name1")
+              .withMiddlename("MiddleName1").withLastname("LastName1")
+              .withAddress("Address1").withPhone("8999007766")
+              .withEmail("test@test.ru"));
     }
   }
 
@@ -32,7 +33,3 @@ public class ContactDeletionTests extends TestBase {
     Assert.assertEquals(after, before);
   }
 }
-
-
-
-

@@ -14,19 +14,21 @@ public class ContactModificationTests extends TestBase {
     app.goTo().homePage();
     if (app.contact().list().size() == 0) {
       app.goTo().contactCreationPage();
-      app.contact().create(new ContactData("Name1",
-              "MiddleName1","LastName1","Address1",
-              "8999007766","test@test.ru"));
+      app.contact().create(new ContactData().withName("Name1")
+              .withMiddlename("MiddleName1").withLastname("LastName1")
+              .withAddress("Address1").withPhone("8999007766")
+              .withEmail("test@test.ru"));
     }
   }
 
   @Test
   public void testContactModification() {
     List<ContactData> before = app.contact().list();
-    ContactData contact = new ContactData(before.get(before.size() - 1).getId(), "Name1 edited",
-            "MiddleName1 edited","LastName1 edited",
-            "Address1 edited","8999007777","test_edited@test.ru");
     int index = before.size() - 1;
+    ContactData contact = new ContactData().withId(before.get(index).getId())
+            .withName("Name1 edited").withMiddlename("MiddleName1 edited")
+            .withLastname("LastName1 edited").withAddress("Address1 edited")
+            .withPhone("8999007777").withEmail("test_edited@test.ru");
 
     app.contact().modify(index, contact);
     List<ContactData> after = app.contact().list();

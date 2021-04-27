@@ -13,8 +13,8 @@ public class GroupCreationTests extends TestBase {
   public void testGroupCreation() throws Exception {
     app.goTo().groupPage();
     List<GroupData> before = app.group().list();
-    GroupData group = new GroupData("test1",
-            "test1 header","test1 footer");
+    GroupData group = new GroupData().withName ("test1").withFooter("test1 header")
+            .withFooter("test1 footer");
     app.group().create(group);
     List<GroupData> after = app.group().list();
     Assert.assertEquals(after.size(), before.size() + 1);
