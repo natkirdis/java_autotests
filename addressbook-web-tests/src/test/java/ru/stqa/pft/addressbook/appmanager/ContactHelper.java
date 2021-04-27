@@ -28,6 +28,10 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
+  private void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+  }
+
   public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"), contactData.getName());
     type(By.name("middlename"),contactData.getMiddlename());
@@ -46,6 +50,10 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.xpath("//img[@title='Edit']")).get(index).click();
   }
 
+  private void initContactModificationById(int id) {
+    wd.findElement(By.xpath("//input[@id = '" + id + "']/ancestor::tr//img[@title='Edit']")).click();
+  }
+
   public void submitContactModification() {
     click(By.name("update"));
   }
@@ -56,8 +64,8 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-  public void modify(int index, ContactData contact) {
-    initContactModification(index);
+  public void modify(ContactData contact) {
+    initContactModificationById(contact.getId());
     fillContactForm(contact);
     submitContactModification();
     returnToHomePage();
@@ -65,6 +73,11 @@ public class ContactHelper extends HelperBase {
 
   public void delete(int index) {
     selectContact(index);
+    deleteSelectedContact();
+  }
+
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
     deleteSelectedContact();
   }
 
