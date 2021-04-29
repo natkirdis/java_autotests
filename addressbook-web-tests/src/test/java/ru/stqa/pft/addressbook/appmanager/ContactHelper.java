@@ -36,6 +36,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("mobile"), contactData.getMobilePhone());
     type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getEmail());
+    type(By.name("email2"), contactData.getEmail());
+    type(By.name("email3"), contactData.getEmail());
   }
 
   public void deleteSelectedContact() {
@@ -98,8 +100,9 @@ public class ContactHelper extends HelperBase {
       String firstname = row.findElement(By.xpath("td[3]")).getText();
       String lastname = row.findElement(By.xpath("td[2]")).getText();
       String allPhones = row.findElement(By.xpath("td[6]")).getText();
+      String allEmails = row.findElement(By.xpath("td[5]")).getText();
       ContactData contact = new ContactData().withId(id).withFirstname(firstname)
-              .withLastname(lastname).withAllPhones(allPhones);
+              .withLastname(lastname).withAllPhones(allPhones).withAllEmails(allEmails);
       contactCache.add(contact);
     }
     return contactCache;
@@ -116,8 +119,12 @@ public class ContactHelper extends HelperBase {
      String homePhone = wd.findElement(By.name("home")).getAttribute("value");
      String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
      String workPhone = wd.findElement(By.name("work")).getAttribute("value");
+     String email = wd.findElement(By.name("email")).getAttribute("value");
+     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
      wd.navigate().back();
      return new ContactData().withFirstname(firstname).withLastname(lastName)
-             .withHomePhone(homePhone).withWorkPhone(workPhone).withMobilePhone(mobilePhone);
+             .withHomePhone(homePhone).withWorkPhone(workPhone).withMobilePhone(mobilePhone)
+             .withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 }
